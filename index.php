@@ -75,6 +75,8 @@
         <div class="row">
             <div class="col">
                 <?php
+                    include("config.php");
+
                     switch (@$_REQUEST['page']){
                         //Categoria
                         case 'categoria-listar':
@@ -161,9 +163,7 @@
                             include('emprestimo-salvar.php');
                             break;
 
-
-
-                            default:
+                        default:
                               include("home.php");
                         }
                 ?>
