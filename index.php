@@ -164,7 +164,7 @@
 
 
                             default:
-                            print "<h1>Seja bem vindo ao sistema da Biblioteca</h1>";
+                              include("home.php");
                         }
                 ?>
             </div>
