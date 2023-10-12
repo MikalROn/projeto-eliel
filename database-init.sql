@@ -1,3 +1,9 @@
+
+
+CREATE DATABASE IF NOT EXISTS biblioteca;
+
+USE biblioteca;
+
 CREATE TABLE categoria (
     id_categoria INTEGER PRIMARY KEY,
     nome_categoria VARCHAR(45)
