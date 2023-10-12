@@ -77,7 +77,7 @@
                 <?php
                     switch (@$_REQUEST['page']){
                         //Categoria
-                        case 'categoria-lisar':
+                        case 'categoria-listar':
                             include('categoria-listar.php');
                             break;
 
@@ -94,7 +94,7 @@
                             break;
 
                             //Livro
-                        case 'livro-lisar':
+                        case 'livro-listar':
                             include('livro-listar.php');
                             break;
 
@@ -128,7 +128,7 @@
                             break;
 
                              //Usuarios
-                        case 'usuarios-lisar':
+                        case 'usuarios-listar':
                             include('usuarios-listar.php');
                             break;
 
@@ -145,7 +145,7 @@
                             break;
 
                              //Emprestimo
-                        case 'emprestimo-lisar':
+                        case 'emprestimo-listar':
                             include('emprestimo-listar.php');
                             break;
 
