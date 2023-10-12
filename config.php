@@ -4,5 +4,5 @@
     define('USER', 'root');
     define('PASS', '');
  
-    $conn = mysqli_connect(HOST, USER, PASS, 'biblioteca'); 
+    $conn = new mysqli(HOST, USER, PASS, 'biblioteca'); 
 ?>
