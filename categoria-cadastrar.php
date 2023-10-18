@@ -1,21 +1,12 @@
-<h1> Cadastrar categoria </h1>
+<h1 class="m-3"> Cadastrar categoria </h1>
 
-<form action="" method="POST">
-    <label> nome categoria </label>
-    <input type="text" name="nome-categoria">
-    <input type="submit" value="cadastrar">
+<form action="?page=categoria-salvar" method="POST" class="m-3">
+    <input type="hidden" name="acao" value="cadastrar"/>
+    <label> Nome categoria </label>
+    <input type="text" name="nome-categoria" class="form-control">
+    <div class="mt-3">  
+        <button type="submit" value="Cadastrar" class="btn btn-success">
+            Cadastrar
+        </button>
+    </div>
 </form>
-
-<?php
-if (@$_SERVER['REQUEST_METHOD'] == "POST") {
-    $nome_categoria = $_POST['nome-categoria'];
-    $sql = "INSERT INTO categoria (nome_categoria) VALUES ('$nome_categoria')";
-    $resultado = mysqli_query($conn, $sql);
-    if ($resultado) {
-        echo '<script>alert("Categoria cadastrada com sucesso")</script>';
-    } else {
-        echo '<script>alert("Erro ao cadastrar categoria")</script>';
-    }
-}
-
-?>
