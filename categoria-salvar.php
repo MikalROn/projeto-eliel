@@ -8,11 +8,12 @@ if(@$_SERVER['REQUEST_METHOD'] == 'POST'){
             $resultado = $conn->query($sql);
             if($resultado){
                 echo "<script>alert('Categoria cadastrada com sucesso!')</script>";
-                echo "<script>location.href='cadastrar-listar.php'</script>";
+                echo "<script>location.href='?page=cadastrar-listar.php'</script>";
             } else{
                 echo "<script>alert('Erro ao cadastrar categoria!')</script>";
-                echo "<script>location.href='cadastrar-categoria.php'</script>";
+                echo "<script>location.href='?page=cadastrar-categoria.php'</script>";
             }
             break;
     }
+}
 ?>
