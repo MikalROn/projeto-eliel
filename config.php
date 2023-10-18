@@ -4,5 +4,14 @@
     define('USER', 'root');
     define('PASS', '');
  
-    $conn = new mysqli(HOST, USER, PASS, 'biblioteca'); 
+    $conn = new mysqli(HOST, USER, PASS, 'biblioteca');
+
+
+    function alert(string $message): void {
+        echo '<script> alert("'. $message .'")</script>';
+    }
+    
+    function redirect(string $url): void {
+        echo "<script> location.href = $url </script>";
+    }
 ?>
