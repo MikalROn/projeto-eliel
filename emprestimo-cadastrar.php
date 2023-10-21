@@ -1,58 +1,62 @@
-<h1> Cadastrar emprestimmos</h1>
+<h1 class="m-3"> Cadastrar Empréstimo </h1>
 
-<form action="emprestimo-cadastrar.php" method="post">
-    <label for=""> livro id</label>
-    <select name="livro_id_livro" >
+<form action="?page=emprestimo-salvar" method="POST" class="m-3">
+    <input type="hidden" name="acao" value="cadastrar"/>
+
+    <label> Livro </label>
+    <select name="livro_id_livro" class="form-control">
         <?php
-        $sql = "SELECT * FROM livro";
-        $resultado = mysqli_query($conn, $sql);
-        while ($linha = mysqli_fetch_assoc($resultado)) {
-            echo '<option value="'.$linha['id_livro'].'">'.$linha['titulo_livro'].'</option>';
-        }
-      ?>
-    </select>
-    <label for="">Usuario</label>
-    <select name="usuario_id_usuario" >
-        <?php 
-        $sql = "SELECT * FROM usuario";
-        $resultado = mysqli_query($conn, $sql);
-        while ($linha = mysqli_fetch_assoc($resultado)) {
-            echo '<option value="'.$linha['id_usuario'].'">'.$linha['nome_usuario'].'</option>';
-        }
+            $sql = "SELECT * FROM livro";
+            $res = $conn ->query($sql);
+            if ($res) {
+                while ($row = $res -> fetch_object()) {
+                    echo "<option value='$row->id_livro' class='form-control'> $row->titulo_livro </option>";
+                }
+            } else {
+                echo "<option value='NONE' class='form-control'> Erro ao buscar livros </option>";
+            }
         ?>
-    <label for="">
-        Atendentes
-    </label>
-    <select name="atendente_id_atendente" >
-        <?php 
-        $sql = "SELECT * FROM atendente";
-        $resultado = mysqli_query($conn, $sql);
-        while ($linha = mysqli_fetch_assoc($resultado)) {
-            echo '<option value="'.$linha['id_atendente'].'">'.$linha['nome_atendente'].'</option>';
-        } ?>    
     </select>
-    <label for="">
-        Data
-    </label>
-    <input type="date" name="data_emprestimo" id="">
-    <label for=""> data devolucão </label>
-    <input type="date" name="data_devolucao">
-    <input type="submit" value="Enviar"> 
-</form>
 
-<?php
-if (@$_SEVER['REQUEST_METHOD'] == 'POST'){
-    $livro_id_livro = @$_POST['livro_id_livro'];
-    $usuario_id_usuario = @$_POST['usuario_id_usuario'];
-    $atendente_id_atendente = @$_POST['atendente_id_atendente'];
-    $data_emprestimo = @$_POST['data_emprestimo'];
-    $data_devolucao = @$_POST['data_devolucao'];
-    $sql = "INSERT INTO emprestimo (livro_id_livro, usuario_id_usuario, atendente_id_atendente, data_emprestimo, data_devolucao) VALUES ('$livro_id_livro', '$usuario_id_usuario', '$atendente_id_atendente', '$data_emprestimo', '$data_devolucao')";
-    $resultado = mysqli_query($conn, $sql);
-    if ($resultado) {
-        echo '<script>alert("Emprestimo cadastrado com sucesso")</script>';
-    } else {
-        echo '<script>alert("Erro ao cadastrar emprestimo")</script>';
-    }
-}
-?>
+    <label> Usuário </label>
+    <select name="usuario_id_usuario" class="form-control">
+        <?php
+            $sql = "SELECT * FROM usuario";
+            $res = $conn ->query($sql);
+            if ($res) {
+                while ($row = $res -> fetch_object()) {
+                    echo "<option value='$row->id_usuario' class='form-control'> $row->nome_usuario </option>";
+                }
+            } else {
+                echo "<option value='NONE' class='form-control'> Erro ao buscar usuários </option>";
+            }
+        ?>
+    </select>
+
+    <label> Funcionário </label>
+    <select name="funcionario_id_funcionario" class="form-control">
+        <?php
+            $sql = "SELECT * FROM funcionario";
+            $res = $conn ->query($sql);
+            if ($res) {
+                while ($row = $res -> fetch_object()) {
+                    echo "<option value='$row->id_funcionario' class='form-control'> $row->nome_funcionario </option>";
+                }
+            } else {
+                echo "<option value='NONE' class='form-control'> Erro ao buscar funcionários </option>";
+            }
+        ?>
+    </select>
+
+    <label> Data de Empréstimo </label>
+    <input type="date" name="data_emprestimo" class="form-control">
+
+    <label> Data de Devolução </label>
+    <input type="date" name="data_devolucao" class="form-control">
+
+    <div class="mt-3">
+        <button type="submit" value="Cadastrar" class="btn btn-success">
+            Cadastrar
+        </button>
+    </div>
+</form>
