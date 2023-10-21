@@ -7,15 +7,15 @@
             $resultado = $conn->query($sql);
             if($resultado){
                 echo "<script>alert('Categoria cadastrada com sucesso!')</script>";
-                echo "<script>location.href='?page=cadastrar-listar.php'</script>";
+                echo "<script>location.href='?page=categoria-listar.php'</script>";
             } else{
                 echo "<script>alert('Erro ao cadastrar categoria!')</script>";
-                echo "<script>location.href='?page=cadastrar-categoria.php'</script>";
+                echo "<script>location.href='?page=categoria-listar.php'</script>";
              }
            break;
         case 'remover':
-            $id_categoria   = @$_REQUEST['id'];
-            $sql = 'DELETE FROM categoria WHERE id_categoria = ' . $id_categoria;
+            $id  = @$_REQUEST['id'];
+            $sql = "DELETE FROM categoria WHERE id_categoria = $id";
             $resultado = $conn->query($sql);
             if ($resultado){
                 alert("Categoria  removida com sucesso");
