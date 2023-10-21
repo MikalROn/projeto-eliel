@@ -4,8 +4,7 @@
     <tr>
         <th>Id Categoria</th>
         <th>Nome categoria</th>
-        <th> Ações </th>
-         
+        <th>Ações</th>
     </tr>
     
     <?php

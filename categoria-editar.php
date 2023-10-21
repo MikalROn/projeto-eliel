@@ -12,7 +12,7 @@
     <input type="hidden" name="acao" value="editar"/>
     <label> Nome categoria </label>
     <input type="hidden" name="id_categoria" value="<?php echo $id; ?>">
-    <input type="text" name="nome-categoria" value="<?php echo $row->nome_categoria; ?>" class="form-control">
+    <input type="text" name="nome_categoria" value="<?php echo $row->nome_categoria; ?>" class="form-control">
     <div class="mt-3">
         <button type="submit" class="btn btn-success">
             Editar
