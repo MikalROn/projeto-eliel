@@ -1,40 +1,44 @@
-<h1> Cadastrar Livro </h1>
+<h1 class="m-3"> Cadastrar livro </h1>
 
-<form action="" method="POST">
+<form action="?page=categoria-salvar" method="POST" class="m-3">
+    <input type="hidden" name="acao" value="cadastrar"/>
+
     <label> Categoria </label>
-    <select name="categoria">
+    <select name="categoria_id_categoria" class="form-control">
         <?php
-            $response = $conn->query("SELECT * FROM `categoria`");
-            while($row = $response->fetch_assoc()){
-                echo "<option value='{$row['id_categoria']}'>  {$row['nome_categoria']} </option>";
+            $sql = "SELECT * FROM categoria";
+            $res = $conn ->query($sql);
+            if ($res) {
+                while ($row = $res -> fetch_object()) {
+                    echo "<option value='$row->id_categoria' class='form-control'> $row->nome_categoria </option>";
+                }
+            } else {
+                echo "<option value='NONE' class='form-control'> Erro ao buscar categorias </option>";
             }
-      ?>
+        ?>
     </select>
-    <label> Título  </label>
-    <input type="text" name="titulo">
-    <label> Autor </label>
-    <input type="text" name="autor">
-    <label> Editora </label>
-    <input type="text" name="editora">
-    <label> Edição </label>
-    <input type="text" name="edicao">
-    <input type="submit" value="cadastrar">
+
+    <label> Titulo </label>
+    <input type="text" name="titulo_livro" class="form-control">
+
+    <label> Autor  </label>
+    <input type="text" name="autor_livro" class="form-control">
+
+    <label> Editora  </label>
+    <input type="text" name="editora_livro" class="form-control">
+
+    <label> Edição  </label>
+    <input type="text" name="edicao_livro" class="form-control">
+
+    <label> Localidade  </label>
+    <input type="text" name="localidade_livro" class="form-control">
+
+    <label> Ano do livro </label>
+    <input type="date" name="ano_livro" class="form-control">
+
+    <div class="mt-3">
+        <button type="submit" value="Cadastrar" class="btn btn-success">
+            Cadastrar
+        </button>
+    </div>
 </form>
-
-<?php
-if (@$_SERVER['REQUEST_METHOD'] == "POST") {
-    $categoria = $_POST['categoria'];
-    $titulo = $_POST['titulo'];
-    $autor = $_POST['autor'];
-    $editora = $_POST['editora'];
-    $edicao = $_POST['edicao'];
-    $sql = "INSERT INTO livro (categoria_id_categoria, titulo_livro, autor_livro, editora_livro, edicao_livro) VALUES ('$categoria', '$titulo', '$autor', '$editora', '$edicao')";
-    $resultado = mysqli_query($conn, $sql);
-    if ($resultado) {
-        echo '<script>alert("Livro cadastrado com sucesso")</script>';
-    } else {
-        echo '<script>alert("Erro ao cadastrar livro")</script>';
-    }
-}
-
-?>
