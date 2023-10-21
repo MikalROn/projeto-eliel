@@ -1,9 +1,8 @@
 <?php
-if(@$_SERVER['REQUEST_METHOD'] == 'POST'){
-    $acao = @$_POST['acao'];
+    $acao = @$_REQUEST['acao'];
     switch ($acao) {
         case 'cadastrar':
-            $nome_categoria = @$_POST['nome-categoria'];
+            $nome_categoria = @$_REQUEST['nome-categoria'];
             $sql = "INSERT INTO categoria (nome_categoria) VALUES ('$nome_categoria')";
             $resultado = $conn->query($sql);
             if($resultado){
@@ -12,10 +11,10 @@ if(@$_SERVER['REQUEST_METHOD'] == 'POST'){
             } else{
                 echo "<script>alert('Erro ao cadastrar categoria!')</script>";
                 echo "<script>location.href='?page=cadastrar-categoria.php'</script>";
-            }
-            break;
+             }
+           break;
         case 'remover':
-            $id_categoria   = @$_POST['id_categoria'];
+            $id_categoria   = @$_REQUEST['id'];
             $sql = 'DELETE FROM categoria WHERE id_categoria = ' . $id_categoria;
             $resultado = $conn->query($sql);
             if ($resultado){
@@ -27,10 +26,9 @@ if(@$_SERVER['REQUEST_METHOD'] == 'POST'){
             }
             break;
         case 'editar':
-            $id_categoria = @$_POST['id_categorias'];
-            $nome_categoria = @$_POST['nome-categoria'];
-            $sql = "UPDATE categoria SET nome_categoria ='$nome_categoria'
-             WHERE id_categoria = $id_categoria  $";
+            $id_categoria = @$_REQUEST['id_categoria'];
+            $nome_categoria = @$_REQUEST['nome-categoria'];
+            $sql = "UPDATE categoria SET nome_categoria ='$nome_categoria' WHERE id_categoria = '$id_categoria'";
             
             $resultado = $conn->query($sql);
             if ($resultado){
@@ -42,5 +40,4 @@ if(@$_SERVER['REQUEST_METHOD'] == 'POST'){
             }
 
     }
-}
 ?>
