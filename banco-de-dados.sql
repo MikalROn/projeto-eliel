@@ -1,3 +1,7 @@
+CREATE DATABASE IF NOT EXISTS `biblioteca`;
+
+USE `biblioteca`;
+
 CREATE TABLE categoria (
   id_categoria INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
   nome_categoria VARCHAR(45) NULL,
