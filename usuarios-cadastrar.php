@@ -10,16 +10,16 @@
         <input type="text" name="cpf_usuario" id="" class="form-control">
 
         <label> Email </label>
-        <input type="email" name="email_usuario">
+        <input type="email" name="email_usuario"  class="form-control">
 
         <label> Data de nascimento </label>
-        <input type="date" name="data_nasc_usuario">
+        <input type="date" name="data_nasc_usuario"  class="form-control">
 
         <label> Telefone </label>
-        <input type="text" name="fone_usuario" id="">
+        <input type="text" name="fone_usuario"  class="form-control">
         
 
-    <div class="mt-3">  
+    <div class="mt-3">
         <button type="submit" value="Cadastrar" class="btn btn-success">
             Cadastrar
         </button>
