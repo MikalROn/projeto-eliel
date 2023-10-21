@@ -12,6 +12,6 @@
     }
     
     function redirect(string $url): void {
-        echo "<script> location.href = $url </script>";
+        echo "<script> location.href = '$url'; </script>";
     }
 ?>
