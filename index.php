@@ -9,7 +9,7 @@
   <body>
   <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Biblioteca</a>
+    <a class="navbar-brand" href="">Biblioteca</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -38,11 +38,11 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Atendentes
+            Funcionarios
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="?page=atendentes-listar">Listar</a></li>
-            <li><a class="dropdown-item" href="?page=atendentes-cadastrar">Cadastrar</a></li>
+            <li><a class="dropdown-item" href="?page=funcionario-listar">Listar</a></li>
+            <li><a class="dropdown-item" href="?page=funcionario-cadastrar">Cadastrar</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">
@@ -112,37 +112,37 @@
                             include('livro-salvar.php');
                             break;
 
-                             //Atendentes
-                        case 'atendentes-listar':
-                            include('atendentes-listar.php');
+                             //funcionario
+                        case 'funcionario-listar':
+                            include('funcionario-listar.php');
                             break;
 
-                        case 'atendentes-cadastrar':
-                            include('atendentes-cadastrar.php');
+                        case 'funcionario-cadastrar':
+                            include('funcionario-cadastrar.php');
                             break;
 
-                        case 'atendentes-editar':
-                            include('atendentes-editar.php');
+                        case 'funcionario-editar':
+                            include('funcionario-editar.php');
                             break;
 
-                        case 'atendentes-salvar':
-                            include('atendentes-salvar.php');
+                        case 'funcionario-salvar':
+                            include('funcionario-salvar.php');
                             break;
 
                              //Usuarios
-                        case 'usuarios-listar':
+                        case 'usuario-listar':
                             include('usuarios-listar.php');
                             break;
 
-                        case 'usuarios-cadastrar':
+                        case 'usuario-cadastrar':
                             include('usuarios-cadastrar.php');
                             break;
 
-                        case 'usuarios-editar':
+                        case 'usuario-editar':
                             include('usuarios-editar.php');
                             break;
 
-                        case 'usuarios-salvar':
+                        case 'usuario-salvar':
                             include('usuarios-salvar.php');
                             break;
 
