@@ -9,7 +9,6 @@ CREATE TABLE categoria (
 );
 
 CREATE TABLE emprestimo (
-  id_emprestimo INTEGER UNSIGNED NOT NULL AUTO_INCRE
   livro_id_livro INTEGER UNSIGNED NOT NULL,
   usuario_id_usuario INTEGER UNSIGNED NOT NULL,
   funcionario_id_funcionario INTEGER UNSIGNED NOT NULL,
