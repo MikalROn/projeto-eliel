@@ -1,4 +1,4 @@
-<h1> Lista de Livros </h1>
+<h1 class='m-3'> Lista de Livros </h1>
 
 <table class="table m-3 table-hover">
     <tr>
@@ -19,20 +19,21 @@
             $categoria_id_categoria = $row->categoria_id_categoria;
             $categoria = $conn->query(
                 "SELECT nome_categoria FROM categoria WHERE id_categoria = $categoria_id_categoria "
-            );
+            )->fetch_object()->nome_categoria;
             echo "<tr>";
 
                 echo "<td> $row->id_livro</td>";
                 echo "<td> $categoria</td>";
                 echo "<td> $row->titulo_livro</td>";
                 echo "<td> $row->autor_livro</td>";
+                echo "<td> $row->editora_livro</td>";
                 echo "<td> $row->edicao_livro</td>";
                 echo "<td> $row->localidade_livro</td>";
                 echo "<td> $row->ano_livro</td>";
                 
                 echo "<td>
                     <button class='btn btn-success' 
-                    onclick=\"location.href='?page=livro-editar&id=$id_livro'\"> 
+                    onclick=\"location.href='?page=livro-editar&id=$row->id_livro'\"> 
                         Editar
                     </button>
                     
@@ -42,7 +43,7 @@
                             let resposta = confirm('Tem certeza que deseja Remover ?');
                             if (resposta)
                             {
-                                location.href = '?page=livro-salvar&acao=remover&id=$id_livro';
+                                location.href = '?page=livro-salvar&acao=remover&id=$row->id_livro';
                             } 
                             else{false;}
                         \"

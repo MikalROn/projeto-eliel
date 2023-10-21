@@ -8,7 +8,7 @@ switch ($acao) {
         $data_emprestimo = @$_REQUEST['data_emprestimo'];
         $data_devolucao = @$_REQUEST['data_devolucao'];
 
-        $sql = "INSERT INTO emprestimos 
+        $sql = "INSERT INTO emprestimo
                 (livro_id_livro, usuario_id_usuario, funcionario_id_funcionario, data_emprestimo, data_devolucao)
                 VALUES ('$livro_id_livro', '$usuario_id_usuario', '$funcionario_id_funcionario',
                  '$data_emprestimo', '$data_devolucao')";
@@ -26,7 +26,7 @@ switch ($acao) {
 
     case 'remover':
         $id = @$_REQUEST['id'];
-        $sql = "DELETE FROM emprestimos WHERE emprestimo_id = $id";
+        $sql = "DELETE FROM emprestimo WHERE livro_id_livro = $id";
         $resultado = $conn->query($sql);
 
         if ($resultado){
@@ -46,13 +46,13 @@ switch ($acao) {
         $data_emprestimo = @$_REQUEST['data_emprestimo'];
         $data_devolucao = @$_REQUEST['data_devolucao'];
 
-        $sql = "UPDATE emprestimos SET 
-                livro_id_livro = '$livro_id_livro',
-                usuario_id_usuario = '$usuario_id_usuario',
-                funcionario_id_funcionario = '$funcionario_id_funcionario',
+        $sql = "UPDATE emprestimo SET
+                livro_id_livro = $livro_id_livro,
+                usuario_id_usuario = $usuario_id_usuario,
+                funcionario_id_funcionario = $funcionario_id_funcionario,
                 data_emprestimo = '$data_emprestimo',
                 data_devolucao = '$data_devolucao'
-                WHERE emprestimo_id = '$id'";
+                WHERE livro_id_livro = $livro_id_livro";
 
         $resultado = $conn->query($sql);
 

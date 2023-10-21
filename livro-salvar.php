@@ -44,6 +44,7 @@
             break;
 
         case 'editar':
+            $id_livro = @$_REQUEST['id_livro'];
             $categoria_id_categoria = @$_REQUEST['categoria_id_categoria'];
             $titulo_livro = @$_REQUEST['titulo_livro'];
             $autor_livro = @$_REQUEST['autor_livro'];
@@ -52,21 +53,21 @@
             $localidade_livro = @$_REQUEST['localidade_livro'];
             $ano_livro = @$_REQUEST['ano_livro'];
             
-            $sql = "UPDATE livro SET nome_livro ='$nome_livro',
+            $sql = "UPDATE livro SET
             categoria_id_categoria = '$categoria_id_categoria',
             titulo_livro = '$titulo_livro',
             autor_livro = '$autor_livro',
             editora_livro = '$editora_livro',
             edicao_livro = '$edicao_livro',
             localidade_livro = '$localidade_livro',
-            ano_livro = '$ano_livro',
+            ano_livro = '$ano_livro'
             
-            WHERE id_livro = '$id_livro'";
+            WHERE id_livro = $id_livro";
             
             $resultado = $conn->query($sql);
 
             if ($resultado){
-                alert("Edição concluioda com sucesso !");
+                alert("Edição concluida com sucesso !");
                 redirect('?page=livro-listar');
             } else {
                 alert("Erro ao editar !");

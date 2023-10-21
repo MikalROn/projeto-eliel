@@ -3,7 +3,7 @@
     switch ($acao) {
         case 'cadastrar':
             $nome_funcionario = @$_REQUEST['nome_funcionario'];
-            $cpf_funcionario = @$_REQUEST['cpf_funcionariro'];
+            $cpf_funcionario = @$_REQUEST['cpf_funcionario'];
             $email_funcionario = @$_REQUEST['email_funcionario'];
             $fone_funcionario = @$_REQUEST['fone_funcionario'];
 
@@ -42,15 +42,16 @@
             $email_funcionario = @$_REQUEST['email_funcionario'];
             $fone_funcionario = @$_REQUEST['fone_funcionario'];
             
-            $sql = "UPDATE funcionario SET nome_funcionario ='$nome_funcionario',
-            cpf_usuario = '$cpf_funcionario',
+            $sql = "UPDATE funcionario SET
+            nome_funcionario ='$nome_funcionario',
+            cpf_funcionario= '$cpf_funcionario',
             email_funcionario = '$email_funcionario',
             fone_funcionario = '$fone_funcionario' WHERE id_funcionario = '$id_funcionario'";
             
             $resultado = $conn->query($sql);
 
             if ($resultado){
-                alert("Edição concluioda com sucesso !");
+                alert("Edição concluida com sucesso !");
                 redirect('?page=funcionario-listar');
             } else {
                 alert("Erro ao editar !");

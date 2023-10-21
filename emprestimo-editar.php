@@ -2,7 +2,7 @@
 
 <?php
     $id = @$_REQUEST['id'];
-    $sql = "SELECT * FROM emprestimo WHERE id_emprestimo = '$id'";
+    $sql = "SELECT * FROM emprestimo WHERE livro_id_livro = '$id'";
     $result = $conn->query($sql);
     $row = $result->fetch_object();
 ?>
@@ -11,7 +11,7 @@
     <input type="hidden" name="acao" value="editar"/>
     <input type="hidden" name="id_emprestimo" value="<?php echo $id; ?>">
 
-    <label> ID do Livro </label>
+    <label> Livro </label>
     <select name="livro_id_livro" class="form-control">
         <?php
             $selected_book_id = $row->livro_id_livro;
@@ -20,7 +20,7 @@
             if ($res) {
                 while ($livro = $res -> fetch_object()) {
                     $selected = $livro->id_livro == $selected_book_id ? "selected" : "";
-                    echo "<option value='$livro->id_livro' 
+                    echo "<option value='$livro->id_livro'
                     class='form-control' $selected> $livro->titulo_livro </option>";
                 }
             } else {
@@ -29,7 +29,7 @@
         ?>
     </select>
 
-    <label> ID do Usuário </label>
+    <label> Usuário </label>
     <select name="usuario_id_usuario" class="form-control">
         <?php
             $selected_user_id = $row->usuario_id_usuario;
@@ -38,7 +38,7 @@
             if ($res) {
                 while ($usuario = $res -> fetch_object()) {
                     $selected = $usuario->id_usuario == $selected_user_id ? "selected" : "";
-                    echo "<option value='$usuario->id_usuario' 
+                    echo "<option value='$usuario->id_usuario'
                     class='form-control' $selected> $usuario->nome_usuario </option>";
                 }
             } else {
@@ -47,7 +47,7 @@
         ?>
     </select>
 
-    <label> ID do Funcionário </label>
+    <label> Funcionário </label>
     <select name="funcionario_id_funcionario" class="form-control">
         <?php
             $selected_employee_id = $row->funcionario_id_funcionario;

@@ -1,4 +1,4 @@
-<h1 class="m-3"> Editar categoria </h1>
+<h1 class="m-3"> Editar Funcionario </h1>
 
 
 <?php
@@ -8,10 +8,10 @@
     $row = $result->fetch_object();
 ?>
 
-<form action="?page=categoria-salvar" method="POST" class="m-3">
+<form action="?page=funcionario-salvar" method="POST" class="m-3">
     <input type="hidden" name="acao" value="editar"/>
 
-    <input type="hidden" name="id_categoria" value="<?php echo $id; ?>">
+    <input type="hidden" name="id_funcionario" value="<?php echo $id; ?>">
 
     <label> Nome  </label>
     <input type="text" name="nome_funcionario" value="<?php echo $row->nome_funcionario; ?>" class="form-control">

@@ -1,4 +1,4 @@
-<h1> Emprestimos realizados </h1>
+<h1 class='m-3'> Emprestimos realizados </h1>
 
 <table class="table m-3 table-hover">
     <tr>
@@ -19,13 +19,15 @@
 
             $livro = $conn->query(
                 "SELECT titulo_livro FROM livro WHERE id_livro = $livro_id_livro "
-            );
+            )->fetch_object()->titulo_livro;
+
             $usuario = $conn->query(
                 "SELECT nome_usuario FROM usuario WHERE id_usuario = $usuario_id_usuario"
-            );
+            )->fetch_object()->nome_usuario;
+
             $funcionario = $conn->query(
-                "SELECT funiconario FROM funiconario WHERE id_funiconario = $funiconario_id_funiconario"
-            );
+                "SELECT nome_funcionario FROM funcionario WHERE id_funcionario = $funcionario_id_funcionario"
+            )->fetch_object()->nome_funcionario;
 
             echo "<tr>";
 
@@ -37,7 +39,7 @@
                 
                 echo "<td>
                     <button class='btn btn-success'
-                    onclick=\"location.href='?page=emprestimo-editar&id=$id_emprestimo'\"> 
+                    onclick=\"location.href='?page=emprestimo-editar&id=$livro_id_livro'\">
                         Editar
                     </button>
                     
@@ -47,7 +49,7 @@
                             let resposta = confirm('Tem certeza que deseja Remover ?');
                             if (resposta)
                             {
-                                location.href = '?page=emprestimo-salvar&acao=remover&id=$id_emprestimo';
+                                location.href = '?page=emprestimo-salvar&acao=remover&id=$livro_id_livro';
                             } else{false;}
                         \"
                     >

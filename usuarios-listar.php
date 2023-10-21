@@ -1,4 +1,4 @@
-<h1> Lista de usuario </h1>
+<h1 class='m-3'> Lista de usuario </h1>
 
 <table class="table m-3 table-hover">
     <tr>

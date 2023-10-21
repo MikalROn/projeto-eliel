@@ -50,8 +50,8 @@
             Usuários
           </a>
           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="?page=usuarios-listar">Listar</a></li>
-            <li><a class="dropdown-item" href="?page=usuarios-cadastrar">Cadastrar</a></li>
+            <li><a class="dropdown-item" href="?page=usuario-listar">Listar</a></li>
+            <li><a class="dropdown-item" href="?page=usuario-cadastrar">Cadastrar</a></li>
           </ul>
         </li>
         <li class="nav-item dropdown">

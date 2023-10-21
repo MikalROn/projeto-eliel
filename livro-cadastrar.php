@@ -1,6 +1,6 @@
 <h1 class="m-3"> Cadastrar livro </h1>
 
-<form action="?page=categoria-salvar" method="POST" class="m-3">
+<form action="?page=livro-salvar" method="POST" class="m-3">
     <input type="hidden" name="acao" value="cadastrar"/>
 
     <label> Categoria </label>
@@ -34,7 +34,7 @@
     <input type="text" name="localidade_livro" class="form-control">
 
     <label> Ano do livro </label>
-    <input type="date" name="ano_livro" class="form-control">
+    <input type="text" name="ano_livro" class="form-control">
 
     <div class="mt-3">
         <button type="submit" value="Cadastrar" class="btn btn-success">

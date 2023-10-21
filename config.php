@@ -6,7 +6,6 @@
  
     $conn = new mysqli(HOST, USER, PASS, 'biblioteca');
 
-
     function alert(string $message): void {
         echo '<script> alert("'. $message .'")</script>';
     }

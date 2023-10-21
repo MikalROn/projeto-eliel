@@ -3,7 +3,7 @@
     switch ($acao) {
         case 'cadastrar':
             $nome_usuario = @$_REQUEST['nome_usuario'];
-            $cpf_usuario = @$_REQUEST['cpf_funcionariro'];
+            $cpf_usuario = @$_REQUEST['cpf_usuario'];
             $email_usuario = @$_REQUEST['email_usuario'];
             $data_nasc_usuario = @$_REQUEST['data_nasc_usuario'];
             $fone_usuario = @$_REQUEST['fone_usuario'];
@@ -39,7 +39,7 @@
         case 'editar':
             $id_usuario = @$_REQUEST['id_usuario'];
             $nome_usuario = @$_REQUEST['nome_usuario'];
-            $cpf_usuario = @$_REQUEST['cpf_funcionariro'];
+            $cpf_usuario = @$_REQUEST['cpf_usuario'];
             $email_usuario = @$_REQUEST['email_usuario'];
             $data_nasc_usuario = @$_REQUEST['data_nasc_usuario'];
             $fone_usuario = @$_REQUEST['fone_usuario'];
