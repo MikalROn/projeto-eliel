@@ -1,8 +1,5 @@
 @echo off
 
-:: Verifica se está no diretório correto
-echo %CD% | findstr /C:"c:\xampp\htdocs\" >nul
-if errorlevel 1 goto executeScripts
 
 :: Se não estiver no diretório correto, copie os arquivos
 echo Você não está no diretório correto. Copiando arquivos para c:\xampp\htdocs\meu_projeto...
