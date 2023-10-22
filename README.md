@@ -1,7 +1,7 @@
 # Trabalho Crud PHP
  Sistema para biblioteca 
 
- ![Alt text](sistema.png)
+ ![Alt text](images/sistema.png)
 
 ## Requisitos
 - xampp 3.3.0 -> [Download](https://www.apachefriends.org/pt_br/index.html)
