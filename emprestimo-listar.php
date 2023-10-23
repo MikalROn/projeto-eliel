@@ -7,6 +7,7 @@
         <th> Funcionario </th>
         <th> Data de emprestimo </th>
         <th> Data de devolução </th>
+        <th> Ações </th>
     </tr>
     
     <?php
@@ -39,7 +40,7 @@
                 
                 echo "<td>
                     <button class='btn btn-success'
-                    onclick=\"location.href='?page=emprestimo-editar&id=$livro_id_livro'\">
+                    onclick=\"location.href='?page=emprestimo-editar&livro-id=$livro_id_livro&usuario-id=$usuario_id_usuario'\">
                         Editar
                     </button>
                     
@@ -49,7 +50,7 @@
                             let resposta = confirm('Tem certeza que deseja Remover ?');
                             if (resposta)
                             {
-                                location.href = '?page=emprestimo-salvar&acao=remover&id=$livro_id_livro';
+                                location.href = '?page=emprestimo-salvar&acao=remover&livro-id=$livro_id_livro&usuario-id=$usuario_id_usuario';
                             } else{false;}
                         \"
                     >

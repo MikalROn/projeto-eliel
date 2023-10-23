@@ -1,22 +1,29 @@
 <h1 class="m-3"> Editar Empréstimo </h1>
 
 <?php
-    $id = @$_REQUEST['id'];
-    $sql = "SELECT * FROM emprestimo WHERE livro_id_livro = '$id'";
+    $id_usuario = @$_REQUEST['usuario-id'];
+    $id_livro = @$_REQUEST['livro-id'];
+
+    $sql = "SELECT * FROM emprestimo WHERE livro_id_livro = $id_livro AND usuario_id_usuario =  $id_usuario";
     $result = $conn->query($sql);
     $row = $result->fetch_object();
+
+    $data_emprestimo = $row->data_emprestimo;
+    $data_devolucao = $row->data_devolucao;
 ?>
 
 <form action="?page=emprestimo-salvar" method="POST" class="m-3">
     <input type="hidden" name="acao" value="editar"/>
-    <input type="hidden" name="id_emprestimo" value="<?php echo $id; ?>">
+
+    <input type="hidden" name="livro-id" value="<?php echo $id_livro; ?>">
+    <input type="hidden" name="usuario-id" value="<?php echo $id_usuario; ?>">
 
     <label> Livro </label>
     <select name="livro_id_livro" class="form-control">
         <?php
             $selected_book_id = $row->livro_id_livro;
             $sql = "SELECT * FROM livro";
-            $res = $conn ->query($sql);
+            $res = $conn->query($sql);
             if ($res) {
                 while ($livro = $res -> fetch_object()) {
                     $selected = $livro->id_livro == $selected_book_id ? "selected" : "";
@@ -66,10 +73,10 @@
     </select>
 
     <label> Data de Empréstimo </label>
-    <input type="date" name="data_emprestimo" class="form-control" value="<?php echo $row->data_emprestimo; ?>">
+    <input type="date" name="data_emprestimo" class="form-control"  value="<?php echo $data_emprestimo; ?>">
 
     <label> Data de Devolução </label>
-    <input type="date" name="data_devolucao" class="form-control" value="<?php echo $row->data_devolucao; ?>">
+    <input type="date" name="data_devolucao" class="form-control" value="<?php echo $data_devolucao; ?>">
 
     <div class="mt-3">
         <button type="submit" value="Editar" class="btn btn-success">

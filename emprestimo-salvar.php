@@ -25,8 +25,11 @@ switch ($acao) {
        break;
 
     case 'remover':
-        $id = @$_REQUEST['id'];
-        $sql = "DELETE FROM emprestimo WHERE livro_id_livro = $id";
+        $id_usuario = @$_REQUEST['usuario-id'];
+        $id_livro = @$_REQUEST['livro-id'];
+
+        $sql = "DELETE FROM emprestimo
+        WHERE livro_id_livro = $id_usuario AND usuario_id_usuario =  $id_livro";
         $resultado = $conn->query($sql);
 
         if ($resultado){
@@ -39,7 +42,9 @@ switch ($acao) {
         break;
 
     case 'editar':
-        $id = @$_REQUEST['id'];
+        $id_usuario = @$_REQUEST['usuario-id'];
+        $id_livro = @$_REQUEST['livro-id'];
+
         $livro_id_livro = @$_REQUEST['livro_id_livro'];
         $usuario_id_usuario = @$_REQUEST['usuario_id_usuario'];
         $funcionario_id_funcionario = @$_REQUEST['funcionario_id_funcionario'];
@@ -52,7 +57,7 @@ switch ($acao) {
                 funcionario_id_funcionario = $funcionario_id_funcionario,
                 data_emprestimo = '$data_emprestimo',
                 data_devolucao = '$data_devolucao'
-                WHERE livro_id_livro = $livro_id_livro";
+                WHERE livro_id_livro = $id_usuario AND usuario_id_usuario =  $id_livro";
 
         $resultado = $conn->query($sql);
 
