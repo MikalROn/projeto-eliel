@@ -1,11 +1,13 @@
 @echo off
 setlocal enabledelayedexpansion
+chcp 65001
 
 :: Diretório de destino
-set DEST_DIR=c:\xampp\htdocs\projeto-eliel\
+set DEST_DIR=C:\xampp\htdocs\projeto-eliel\
 
 :: Verifica se você está no diretório correto
-if "%CD%"=="%DEST_DIR%" (
+if "%CD%\"=="%DEST_DIR%" (
+
     echo Você já está no diretório correto.
     goto executeScripts
 ) else (
@@ -25,9 +27,11 @@ if "%CD%"=="%DEST_DIR%" (
 :executeScripts
 cd C:\xampp
 
-start "" C:\xampp\xampp-control.exe 
+
 start "" mysql\bin\mysqld --defaults-file=mysql\bin\my.ini
-start /B apache\bin\httpd.exe 
+start /B apache\bin\httpd.exe
+timeout /t 2 /nobreak >nul
+start "" C:\xampp\xampp-control.exe 
 
 
 goto endScript
