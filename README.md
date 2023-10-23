@@ -18,10 +18,14 @@
 ### Windows
 
 
-
+Powershell 
 ```powershell
 ./start.bat
 ```
+Cmd
+´´´shell
+start.bat
+´´´
 
 ### Linux
 ```bash
