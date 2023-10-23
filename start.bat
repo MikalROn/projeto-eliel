@@ -1,18 +1,38 @@
 @echo off
+setlocal enabledelayedexpansion
+
+:: Diretório de destino
+set DEST_DIR=c:\xampp\htdocs\projeto-eliel\
+
+:: Verifica se você está no diretório correto
+if "%CD%"=="%DEST_DIR%" (
+    echo Você já está no diretório correto.
+    goto executeScripts
+) else (
+    echo Você não está no diretório correto. Copiando arquivos para %DEST_DIR%...
+    :: Se o diretório de destino não existir, cria-o
+    if not exist "%DEST_DIR%" (
+        mkdir "%DEST_DIR%"
+    )
+    :: Copia os arquivos para o diretório de destino
+    xcopy . "%DEST_DIR%" /E /I /H
+    echo Arquivos copiados!
+    goto executeScripts
+)
 
 
-:: Se não estiver no diretório correto, copie os arquivos
-echo Você não está no diretório correto. Copiando arquivos para c:\xampp\htdocs\meu_projeto...
-if not exist "c:\xampp\htdocs\projeto-eliel\" mkdir "c:\xampp\htdocs\projeto-eliel"
-xcopy . "c:\xampp\htdocs\projeto-eliel\" /E /I /H
-echo Arquivos copiados!
-goto exe
 
 :executeScripts
-start cmd /c "@echo off && C:\xampp\apache_start.bat"
-start cmd /c "@echo off && C:\xampp\mysql_start.bat"
+cd C:\xampp
+
+start "" C:\xampp\xampp-control.exe 
+start "" mysql\bin\mysqld --defaults-file=mysql\bin\my.ini
+start /B apache\bin\httpd.exe 
+
+
 goto endScript
 
+start browser http://localhost/projeto-eliel
 
 :endScript
 exit
