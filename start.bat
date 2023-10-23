@@ -31,12 +31,13 @@ cd C:\xampp
 start "" mysql\bin\mysqld --defaults-file=mysql\bin\my.ini
 start /B apache\bin\httpd.exe
 timeout /t 2 /nobreak >nul
-start "" C:\xampp\xampp-control.exe 
+C:\xampp\xampp-control.exe 
 
+echo "Servidor inicializado com sucesso..."
+echo "Endereço -> http://localhost/projeto-eliel"
 
 goto endScript
 
-start browser http://localhost/projeto-eliel
 
 :endScript
 exit
