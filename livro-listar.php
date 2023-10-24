@@ -2,7 +2,7 @@
 
 <table class="table m-3 table-hover">
     <tr>
-        <th> Id Livro </th>
+        <th> # </th>
         <th> Categoria </th>
         <th> Titulo </th>
         <th> Autor </th>
@@ -15,6 +15,14 @@
     
     <?php
         $response = $conn->query("SELECT * FROM `livro`");
+
+        $qtd = $response->num_rows;
+        if($qtd == 0){
+            echo "<p class='m-4'><b>Não existem registros!</b></p>";
+        } else {
+            echo "<p class='m-4'>Encoutrou <b>$qtd</b> resultados.";
+        }
+
         while($row = $response->fetch_object()){
             $categoria_id_categoria = $row->categoria_id_categoria;
             $categoria = $conn->query(

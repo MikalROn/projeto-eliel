@@ -2,7 +2,7 @@
 
 <table class="table m-3 table-hover">
     <tr>
-        <th>Id usuario</th>
+        <th>#</th>
         <th>Nome </th>
         <th>Cpf </th>
         <th>Email</th>
@@ -13,6 +13,14 @@
     
     <?php
         $response = $conn->query("SELECT * FROM usuario");
+
+        $qtd = $response->num_rows;
+        if($qtd == 0){
+            echo "<p class='m-4'><b>Não existem registros!</b></p>";
+        } else {
+            echo "<p class='m-4'>Encoutrou <b>$qtd</b> resultados.";
+        }
+
         while($row = $response->fetch_object()){
 
             $id_usuario = $row->id_usuario;
