@@ -12,6 +12,13 @@
     
     <?php
         $response = $conn->query("SELECT * FROM `emprestimo`");
+        $qtd = $response->num_rows;
+        if($qtd == 0){
+            echo "<p class='m-4'><b>Não existem registros!</b></p>";
+        } else {
+            echo "<p class='m-4'>Encoutrou <b>$qtd</b> resultados.";
+        }
+        
         while($row = $response->fetch_object()){
 
             $livro_id_livro = $row->livro_id_livro;
@@ -29,15 +36,12 @@
             $funcionario = $conn->query(
                 "SELECT nome_funcionario FROM funcionario WHERE id_funcionario = $funcionario_id_funcionario"
             )->fetch_object()->nome_funcionario;
-
             echo "<tr>";
-
-                echo "<td> $livro</td>";
-                echo "<td> $usuario </td>";
-                echo "<td> $funcionario </td>";
-                echo "<td> $row->data_emprestimo</td>";
-                echo "<td> $row->data_devolucao</td>";
-                
+                    echo "<td> $livro</td>";
+                    echo "<td> $usuario </td>";
+                    echo "<td> $funcionario </td>";
+                    echo "<td> $row->data_emprestimo</td>";
+                    echo "<td> $row->data_devolucao</td>";
                 echo "<td>
                     <button class='btn btn-success'
                     onclick=\"location.href='?page=emprestimo-editar&livro-id=$livro_id_livro&usuario-id=$usuario_id_usuario'\">

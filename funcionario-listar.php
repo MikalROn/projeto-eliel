@@ -12,6 +12,13 @@
     
     <?php
         $response = $conn->query("SELECT * FROM funcionario");
+        
+        $qtd = $response->num_rows;
+        if($qtd == 0){
+            echo "<p class='m-4'><b>Não existem registros!</b></p>";
+        } else {
+            echo "<p class='m-4'>Encoutrou <b>$qtd</b> resultados.";
+        }
         while($row = $response->fetch_object()){
 
             $id_funcionario = $row->id_funcionario;

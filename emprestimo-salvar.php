@@ -29,7 +29,7 @@ switch ($acao) {
         $id_livro = @$_REQUEST['livro-id'];
 
         $sql = "DELETE FROM emprestimo
-        WHERE livro_id_livro = $id_usuario AND usuario_id_usuario =  $id_livro";
+        WHERE livro_id_livro = $id_livro AND usuario_id_usuario =  $id_usuario";
         $resultado = $conn->query($sql);
 
         if ($resultado){
@@ -57,7 +57,7 @@ switch ($acao) {
                 funcionario_id_funcionario = $funcionario_id_funcionario,
                 data_emprestimo = '$data_emprestimo',
                 data_devolucao = '$data_devolucao'
-                WHERE livro_id_livro = $id_usuario AND usuario_id_usuario =  $id_livro";
+                WHERE livro_id_livro = $id_livro AND usuario_id_usuario =  $id_usuario";
 
         $resultado = $conn->query($sql);
 
